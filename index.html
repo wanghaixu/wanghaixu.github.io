@@ -1,9 +1,17 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><title>一眼看世界</title><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no"><script>(function(win) {
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>一眼看世界</title>
+    <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
+    <script>
+    (function(win) {
         var doc = win.document;
         var docEl = doc.documentElement;
         var uiSize = 750;
         var tid;
-        var refreshRem=function() {
+        var refreshRem = function() {
             var _ro = docEl.getBoundingClientRect();
             var _left = _ro.left;
             var _right = _ro.right;
@@ -24,4 +32,19 @@
                 tid = setTimeout(refreshRem, 300);
             }
         });
-    })(window);</script><link rel=stylesheet href=static/base.css><link rel=stylesheet href=static/jquery.js><link href=/static/css/app.d72502ebbc0ff64ceec3363f270d7b74.css rel=stylesheet></head><body><app></app><script type=text/javascript src=/static/js/manifest.3e8f6f564c7fdc160c17.js></script><script type=text/javascript src=/static/js/vendor.933d6d78a3d11d7d0957.js></script><script type=text/javascript src=/static/js/app.c14183e34a66592c9716.js></script></body></html>
+    })(window);
+    </script>
+    <link rel=stylesheet href=static/base.css>
+    <link rel=stylesheet href=static/jquery.js>
+    <link href=/static/css/app.d72502ebbc0ff64ceec3363f270d7b74.css rel=stylesheet>
+    <script type="text/javascript" src="//cdn.bootcss.com/seajs/3.0.2/sea.js"></script>
+</head>
+
+<body>
+    <app></app>
+    <script type=text/javascript src=/static/js/manifest.3e8f6f564c7fdc160c17.js></script>
+    <script type=text/javascript src=/static/js/vendor.933d6d78a3d11d7d0957.js></script>
+    <script type=text/javascript src=/static/js/app.c14183e34a66592c9716.js></script>
+</body>
+
+</html>
