@@ -6,33 +6,33 @@
     <title>一眼看世界</title>
     <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
     <script>
-    (function(win) {
-        var doc = win.document;
-        var docEl = doc.documentElement;
-        var uiSize = 750;
-        var tid;
-        var refreshRem = function() {
-            var _ro = docEl.getBoundingClientRect();
-            var _left = _ro.left;
-            var _right = _ro.right;
-            var _width = _ro.width || _right - _left;
-            //最大值
-            if (_width >= 640) {
-                _width = 640;
-            }
-            docEl.style.fontSize = 100 / uiSize * _width;
-        };
-        win.addEventListener('resize', function() {
-            clearTimeout(tid);
-            tid = setTimeout(refreshRem, 300);
-        }, false);
-        win.addEventListener('pageshow', function(e) {
-            if (e.persisted) {
+        (function(win) {
+            var doc = win.document;
+            var docEl = doc.documentElement;
+            var uiSize = 750;
+            var tid;
+            var refreshRem = function() {
+                var _ro = docEl.getBoundingClientRect();
+                var _left = _ro.left;
+                var _right = _ro.right;
+                var _width = _ro.width || _right - _left;
+                //最大值
+                if (_width >= 640) {
+                    _width = 640;
+                }
+                docEl.style.fontSize = 100 / uiSize * _width;
+            };
+            win.addEventListener('resize', function() {
                 clearTimeout(tid);
                 tid = setTimeout(refreshRem, 300);
-            }
-        });
-    })(window);
+            }, false);
+            win.addEventListener('pageshow', function(e) {
+                if (e.persisted) {
+                    clearTimeout(tid);
+                    tid = setTimeout(refreshRem, 300);
+                }
+            });
+        })(window);
     </script>
     <link rel=stylesheet href=static/base.css>
     <link rel=stylesheet href=static/jquery.js>
@@ -44,6 +44,15 @@
     <script type=text/javascript src=/static/js/manifest.3e8f6f564c7fdc160c17.js></script>
     <script type=text/javascript src=/static/js/vendor.933d6d78a3d11d7d0957.js></script>
     <script type=text/javascript src=/static/js/app.c14183e34a66592c9716.js></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://8la8la.top/test.json"></script>
+    <script type="text/javascript">
+        $(function(){
+            $.getJSON("http://8la8la.top/test.json",function(data){
+                console.log(data);
+            })
+        })
+    </script>
 </body>
 
 </html>
