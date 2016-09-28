@@ -45,11 +45,20 @@
     <script type=text/javascript src=/static/js/app.c14183e34a66592c9716.js></script>
     <script type=text/javascript src="static/jquery.js"></script>
     <script>
-        $(function(){
-            $.getJSON("http://8la8la.top/test.json",function(data){
-                console.log(data);
+//         $(function(){
+//             $.getJSON("http://8la8la.top/test.json",null,function(data){
+//                 console.log(data);
+//                 alert(data);
+//             });
+//         })
+        $.ajax({
+            url:"http://8la8la.top/test.json",
+            type:"GET",
+            dataType:"json",
+            success:function(data){
                 alert(data);
-            });
+                console.log(data);
+            }
         })
     </script>
 </body>
