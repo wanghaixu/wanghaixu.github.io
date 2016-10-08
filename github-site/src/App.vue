@@ -1,20 +1,10 @@
 <template>
-  <div id="app" class="ub">
-    <span style="font-size:0.32rem">16px字体</span> | 
-    <span style="font-size:16px">16px字体</span>
-  </div>
+	<div>
+		<router-view
+		  class="view"
+		  keep-alive
+		  transition
+		  transition-mode="out-in">
+		</router-view>
+	</div>
 </template>
-
-<script>
-import Hello from './components/Hello'
-
-export default {
-  components: {
-    Hello
-  }
-}
-</script>
-
-<style>
-
-</style>

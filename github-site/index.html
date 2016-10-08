@@ -2,40 +2,74 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>一眼看世界</title>
+    <title>观天下</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="icon" href="static/favicon2.ico" />
     <script>
-    (function(win) {
-        var doc = win.document;
-        var docEl = doc.documentElement;
-        var uiSize = 750;
-        var tid;
-        var refreshRem=function() {
-            var _ro = docEl.getBoundingClientRect();
-            var _left = _ro.left;
-            var _right = _ro.right;
-            var _width = _ro.width || _right - _left;
-            //最大值
-            if (_width >= 640) {
-                _width = 640;
-            }
-            docEl.style.fontSize = 100 / uiSize * _width;
-        };
-        win.addEventListener('resize', function() {
-            clearTimeout(tid);
-            tid = setTimeout(refreshRem, 300);
-        }, false);
-        win.addEventListener('pageshow', function(e) {
-            if (e.persisted) {
+        (function(win) {
+            var doc = win.document;
+            var docEl = doc.documentElement;
+            var uiSize = 750;
+            var tid;
+            var refreshRem=function() {
+                var _ro = docEl.getBoundingClientRect();
+                var _left = _ro.left;
+                var _right = _ro.right;
+                var _width = _ro.width || _right - _left;
+                //最大值
+                if (_width >= 640) {
+                    _width = 640;
+                }
+                docEl.style.fontSize = 100 / uiSize * _width;
+            };
+            win.addEventListener('resize', function() {
                 clearTimeout(tid);
                 tid = setTimeout(refreshRem, 300);
+            }, false);
+            win.addEventListener('pageshow', function(e) {
+                if (e.persisted) {
+                    clearTimeout(tid);
+                    tid = setTimeout(refreshRem, 300);
+                }
+            });
+        })(window);
+        function ascii2native(string){
+            var character=string.split("\\u");
+            var native=character[0];
+            for(var i=1;i<character.length;i++){
+                var code=character[i];
+                native1+=String.fromCharCode(parseInt("0x"+code.substring(0,4)));
+                if(code.length>4){
+                    native1+=code.substring(4,code.length);
+                }
             }
-        });
-    })(window);
+            return native;
+        }
     </script>
     <link rel="stylesheet" href="static/base.css">
-    <link rel="stylesheet" href="static/jquery.js">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="javascript">
+        function callBack(data){
+            console.log(data);
+        }
+        $(function(){
+            console.log($)
+            console.log($.ajax())
+            $.ajax({
+                type:"GET",
+                url:"store/video/youku/youku_1.txt",//发送请求的地址
+                dataType:"jsonp",
+                error:function(err){//如果确定能正确运行,可不写
+                    alert("错误");
+                },
+                success:function(){
+                    // console.log(data);
+                }
+            })
+        })
+        
+    </script>
 </head>
 
 <body>
