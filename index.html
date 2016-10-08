@@ -30,7 +30,8 @@
             type:"GET",
             dataTye:"json",
             success:function(data){
-                console.log(data);
+                var result=ascii2native(data);
+                console.log(result);
             }
         });
     </script>
