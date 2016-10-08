@@ -36,7 +36,7 @@
         })(window);
     </script>
     <link rel="stylesheet" href="static/base.css">
-    <script type="javascript" src="static/jquery.js"></script>
+    <script type="javascript" src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script>
         function ascii2native(string){
             var character=string.split("\\u");
@@ -50,28 +50,31 @@
             }
             return native;
         }
-        $.ajax({
-            type:"GET",// 指定是post还是get
-            data:{
-                tag:"10005",
-                pl:"30",
-                pt:"0",
-                ar:"0",
-                mg:"0",
-                y:"0",
-                cl:"1",
-                o:"0",
-                pn:"1"
-            },
-            url:"http://vip.youku.com/ajax/filter/filter_data",//发送请求的地址
-            dataType:"json",
-            error:function(err){//如果确定能正确运行,可不写
-                alert("错误");
-            },
-            success:function(){
-                console.log(data);
-            }
-        })
+        window.onload=function(){
+            console.log($);
+            $.ajax({
+                type:"GET",// 指定是post还是get
+                data:{
+                    tag:"10005",
+                    pl:"30",
+                    pt:"0",
+                    ar:"0",
+                    mg:"0",
+                    y:"0",
+                    cl:"1",
+                    o:"0",
+                    pn:"1"
+                },
+                url:"http://vip.youku.com/ajax/filter/filter_data",//发送请求的地址
+                dataType:"json",
+                error:function(err){//如果确定能正确运行,可不写
+                    alert("错误");
+                },
+                success:function(){
+                    console.log(data);
+                }
+            })
+        }
     </script>
 </head>
 
