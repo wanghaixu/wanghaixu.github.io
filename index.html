@@ -15,7 +15,7 @@
     <script>
         function ascii2native(string){
             var character=string.split("\\u");
-            var native=character[0];
+            var native1=character[0];
             for(var i=1;i<character.length;i++){
                 var code=character[i];
                 native1+=String.fromCharCode(parseInt("0x"+code.substring(0,4)));
@@ -23,7 +23,7 @@
                     native1+=code.substring(4,code.length);
                 }
             }
-            return native;
+            return native1;
         }
         $.ajax({
             url:"store/video/youku/youku_1.txt",
