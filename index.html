@@ -55,17 +55,27 @@
             }
             return native;
         }
-        
-        window.onload=function(){
+        $(function(){
             $.ajax({
-                url:'http://vip.youku.com/ajax/filter/filter_data?tag=10005&pl=30&pt=0&ar=0&mg=0&y=0&cl=1&o=0&pn=1',
+                url:'http://vip.youku.com/ajax/filter/filter_data',
                 type:'GET',
+                data:{
+                    tag:"10005",
+                    pl:"30",
+                    pt:"0",
+                    ar:"0",
+                    mg:"0",
+                    y:"0",
+                    cl:"1",
+                    o:"0",
+                    pn:"1"
+                },
                 dataType:"json",
                 success:function(data){
                     console.log(data);
                 }
             })
-        }
+        })
     </script>
 </body>
 
