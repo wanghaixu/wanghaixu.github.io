@@ -50,28 +50,31 @@
     <link rel="stylesheet" href="static/base.css">
     <script type="javascript" src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
     <script type="javascript">
-        $.ajax({
-            type:"GET",// 指定是post还是get
-            data:{
-                tag:"10005",
-                pl:"30",
-                pt:"0",
-                ar:"0",
-                mg:"0",
-                y:"0",
-                cl:"1",
-                o:"0",
-                pn:"1"
-            },
-            url:"http://vip.youku.com/ajax/filter/filter_data",//发送请求的地址
-            dataType:"json",
-            error:function(err){//如果确定能正确运行,可不写
-                alert("错误");
-            },
-            success:function(){
-                console.log(data);
-            }
+        $(function(){
+            $.ajax({
+                type:"GET",// 指定是post还是get
+                data:{
+                    tag:"10005",
+                    pl:"30",
+                    pt:"0",
+                    ar:"0",
+                    mg:"0",
+                    y:"0",
+                    cl:"1",
+                    o:"0",
+                    pn:"1"
+                },
+                url:"http://vip.youku.com/ajax/filter/filter_data",//发送请求的地址
+                dataType:"json",
+                error:function(err){//如果确定能正确运行,可不写
+                    alert("错误");
+                },
+                success:function(){
+                    console.log(data);
+                }
+            })
         })
+        
     </script>
 </head>
 
