@@ -31,7 +31,8 @@
             dataTye:"json",
             success:function(data){
                 var result=ascii2native(data);
-                console.log(result);
+                var json=eval("["+result+"]");
+                console.log(json);
             }
         });
     </script>
