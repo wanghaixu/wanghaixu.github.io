@@ -25,7 +25,14 @@
             }
             return native;
         }
-        console.log($.ajax);
+        $.ajax({
+            url:"store/video/youku/youku_1.txt",
+            type:"GET",
+            dataTye:"json",
+            success:function(data){
+                console.log(data);
+            }
+        });
     </script>
 </head>
 
