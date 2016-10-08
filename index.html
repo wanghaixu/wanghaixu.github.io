@@ -7,38 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="icon" href="static/favicon2.ico" />
     <script>
-    (function(win) {
-        var doc = win.document;
-        var docEl = doc.documentElement;
-        var uiSize = 750;
-        var tid;
-        var refreshRem=function() {
-            var _ro = docEl.getBoundingClientRect();
-            var _left = _ro.left;
-            var _right = _ro.right;
-            var _width = _ro.width || _right - _left;
-            //最大值
-            if (_width >= 640) {
-                _width = 640;
-            }
-            docEl.style.fontSize = 100 / uiSize * _width;
-        };
-        win.addEventListener('resize', function() {
-            clearTimeout(tid);
-            tid = setTimeout(refreshRem, 300);
-        }, false);
-        win.addEventListener('pageshow', function(e) {
-            if (e.persisted) {
+        (function(win) {
+            var doc = win.document;
+            var docEl = doc.documentElement;
+            var uiSize = 750;
+            var tid;
+            var refreshRem=function() {
+                var _ro = docEl.getBoundingClientRect();
+                var _left = _ro.left;
+                var _right = _ro.right;
+                var _width = _ro.width || _right - _left;
+                //最大值
+                if (_width >= 640) {
+                    _width = 640;
+                }
+                docEl.style.fontSize = 100 / uiSize * _width;
+            };
+            win.addEventListener('resize', function() {
                 clearTimeout(tid);
                 tid = setTimeout(refreshRem, 300);
-            }
-        });
-    })(window);
+            }, false);
+            win.addEventListener('pageshow', function(e) {
+                if (e.persisted) {
+                    clearTimeout(tid);
+                    tid = setTimeout(refreshRem, 300);
+                }
+            });
+        })(window);
     </script>
-    <script type="javascript" src="static/jquery.js"></script>
     <link rel="stylesheet" href="static/base.css">
-    <script type="javascript">
-
+    <script type="javascript" src="static/jquery.js"></script>
+    <script>
         function ascii2native(string){
             var character=string.split("\\u");
             var native=character[0];
@@ -51,6 +50,7 @@
             }
             return native;
         }
+        alert(1)
         $(function(){
             $.ajax({
                 url:'http://vip.youku.com/ajax/filter/filter_data',
