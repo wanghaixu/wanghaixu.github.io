@@ -10,7 +10,6 @@
 
 <body onload="func()">
 </body>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script type="javascript">
         function ascii2native(string){
             var character=string.split("\\u");
@@ -27,14 +26,6 @@
         function func(){
             alert(1);
         }
-        $(function(){
-            console.log($)
-            console.log($.ajax);
-            $.ajax({
-                type:"GET",
-                url:"store/video/youku/youku_1.txt",//发送请求的地址
-                dataType:"json"
-            })
-        })
+        
     </script>
 </html>
