@@ -1,6 +1,8 @@
 <template>
   <div class="ub ub-ver ub-ac ub-pc" id="play">
-     <a href="http://vip.sdyhy.cn/vip.php?url=http://v.youku.com//v_show//id_XMTY2MDUwNzU4MA==.html">测试</a>
+     
+    <iframe width="100%" allowtransparency="true" frameborder="0" scrolling="no" src="http://vip.sdyhy.cn/vip.php?url=http://v.youku.com//v_show//id_XMTY2MDUwNzU4MA==.html"></iframe>
+        
   </div>
 </template>
 <script>
