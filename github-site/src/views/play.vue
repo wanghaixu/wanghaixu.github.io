@@ -1,7 +1,7 @@
 <template>
-  <div class="ub ub-ver ub-ac ub-pc" id="play">
+  <div class="ub ub-ac ub-pc" id="play">
      
-    <iframe width="100%" allowtransparency="true" frameborder="0" scrolling="no" src="http://vip.sdyhy.cn/vip.php?url=http://v.youku.com//v_show//id_XMTY2MDUwNzU4MA==.html"></iframe>
+    <iframe width="100%" height="97.5" allowtransparency="true" frameborder="0" scrolling="no" src="http://vip.sdyhy.cn/vip.php?url=http://v.youku.com//v_show//id_XMTY2MDUwNzU4MA==.html"></iframe>
         
   </div>
 </template>
