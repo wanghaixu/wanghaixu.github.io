@@ -20,29 +20,30 @@ module.exports = {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'vux-components': 'vux/dist/components',
-      'store': path.resolve(__dirname, '../store'),
-      'actions': path.resolve(__dirname, '../actions'),
-      'getters': path.resolve(__dirname, '../getters')
+      'store': path.resolve(__dirname, '../src/store'),
+      'action': path.resolve(__dirname, '../src/action'),
+      'getter': path.resolve(__dirname, '../src/getter'),
+      'views': path.resolve(__dirname, '../src/views')
     }
   },
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      }
-    ],
+    // preLoaders: [
+    //   {
+    //     test: /\.vue$/,
+    //     loader: 'eslint',
+    //     include: projectRoot,
+    //     exclude: /node_modules/
+    //   },
+    //   {
+    //     test: /\.js$/,
+    //     loader: 'eslint',
+    //     include: projectRoot,
+    //     exclude: /node_modules/
+    //   }
+    // ],
     loaders: [
       {
         test: /\.vue$/,
