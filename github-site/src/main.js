@@ -13,8 +13,8 @@ FastClick.attach(document.body)
 Vue.use(Router)
 //全局使用路由 
 var router = new Router({
-  hashbang:false,
-  history:true
+  hashbang:true,
+  history:false
 });
 
 //路由表
