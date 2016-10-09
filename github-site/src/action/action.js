@@ -43,3 +43,18 @@ export const pullMyInfo = function({ dispatch, state }, paramObject) {
     }
     ajax(postData);
 };
+//js改变路由
+export const jsSkipPath =function({dispatch,state,routeName,routePath,params}){
+    if(!!routeName){
+        store.router.go({
+            name: routeName,
+            params: params
+        });
+
+    }else if(!!routePath){
+        store.router.go({
+            path: routePath,
+            params: params
+        });
+    }
+}

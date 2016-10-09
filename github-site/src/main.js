@@ -5,7 +5,10 @@ import store from 'store/store.js';
 import App from './App.vue'; //根元素
 import index from 'views/index.vue'; //首页
 import module from 'views/module.vue'; //模块详情
+import play from 'views/play.vue'; //播放页
 
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 // install router
 Vue.use(Router)
 //全局使用路由 
@@ -23,6 +26,10 @@ router.map({
   '/module/:id':{
   	name:'module',
   	component:module
+  },
+  '/play/:id':{
+    name:'play',
+    component:play
   }
 });
 
