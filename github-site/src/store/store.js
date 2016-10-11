@@ -5,8 +5,17 @@ Vue.use(Vuex)
 // 创建一个对象来保存应用启动时的初始状态
 var state = {
     data: {
+        //站长推荐
     	videoList:[],
-        playUrl:""
+        //播放地址
+        playUrl:"",
+        //模块内配置信息
+        moduleInfo:{
+            title:"页面出错，请返回上一页！",
+            type:""
+        },
+        //主页模块菜单
+        moduleMenu:[]
     },
     //接口列表
     ApiList: {
@@ -19,7 +28,12 @@ const mutations = {
 	},
     setPlayUrl:function(state,params){
         state.data.playUrl=params;
-        console.log(params)
+    },
+    setModuleInfo:function(state,params){
+        state.data.moduleInfo=params;
+    },
+    setModuleMenu:function(state,params){
+        state.data.moduleMenu=params;
     }
 
 };

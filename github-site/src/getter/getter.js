@@ -8,3 +8,11 @@ export function getVideoList () {
 export function getPlayUrl () {
   return store.state.data.playUrl;
 }
+//获取模块内信息
+export function getModuleInfo(){
+	return store.state.data.moduleInfo;
+}
+//获取主页模块菜单
+export function getModuleMenu(){
+	return store.state.data.moduleMenu;
+}

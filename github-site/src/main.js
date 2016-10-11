@@ -23,7 +23,7 @@ router.map({
   	name:'index',
     component: index
   },
-  '/module/:id':{
+  '/module':{
   	name:'module',
   	component:module
   },
