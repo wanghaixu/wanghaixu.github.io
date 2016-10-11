@@ -13,7 +13,6 @@
  * Date: 2016-07-07T21:44Z
  */
 ( function( global, factory ) {
-
 	"use strict";
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
@@ -8440,7 +8439,6 @@ function ajaxExtend( target, src ) {
  * - returns the corresponding response
  */
 function ajaxHandleResponses( s, jqXHR, responses ) {
-
 	var ct, type, finalDataType, firstDataType,
 		contents = s.contents,
 		dataTypes = s.dataTypes;
@@ -8896,10 +8894,8 @@ jQuery.extend( {
 
 		// More options handling for requests with no content
 		if ( !s.hasContent ) {
-
 			// Remember the hash so we can put it back
 			uncached = s.url.slice( cacheURL.length );
-
 			// If data is available, append data to url
 			if ( s.data ) {
 				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;

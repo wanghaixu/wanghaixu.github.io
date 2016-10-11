@@ -3,58 +3,49 @@ const ajax = function({
     url,
     method = 'GET',
     data = "",
-    dataType = "JSON",
+    dataType = "json",
     timeout = 10000,
     success,
     error = "",
-    beforeSend = "",
-    contentType = undefined,
-    complete = ""
 }) {
     $.ajax({
         url: url,
         method: method,
         data: data,
-        contentType: contentType,
         dataType: dataType,
-        beforeSend: beforeSend,
-        complete: complete,
         timeout: timeout,
-        success: function(data, xhr) {
-            success && success.call(this, data, xhr);
-        },
+        success: success,
         error: error,
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true
     })
 };
-//请求我的信息
-export const pullMyInfo = function({ dispatch, state }, paramObject) {
+//请求视频数据
+export const pullVideo = function({param}) {
     let postData = {
-        url: "",
-        method: 'post',
-        data: paramObject
+        url: param
     }
-    postData.success = function(info) {
+    postData.success = function(data) {
+        let result=data.result.result;
+        store.dispatch("setVideo",result);
     }
     postData.error = function(xhr, err) {
+        alert("请求失败，请重试！")
     }
     ajax(postData);
 };
 //js改变路由
-export const jsSkipPath =function({dispatch,state,routeName,routePath,params}){
+export const jsSkipPath =function({routeName,routePath,params}){
     if(!!routeName){
         store.router.go({
-            name: routeName,
-            params: params
+            name: routeName
         });
 
     }else if(!!routePath){
         store.router.go({
-            path: routePath,
-            params: params
+            path: routePath
         });
     }
+}
+//设置播放路径
+export const setPlayUrl=function(params){
+    store.dispatch("setPlayUrl",params);
 }

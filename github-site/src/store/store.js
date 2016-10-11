@@ -5,6 +5,8 @@ Vue.use(Vuex)
 // 创建一个对象来保存应用启动时的初始状态
 var state = {
     data: {
+    	videoList:[],
+        playUrl:""
     },
     //接口列表
     ApiList: {
@@ -12,6 +14,13 @@ var state = {
 };
 // 创建一个对象存储一系列我们接下来要写的 mutation 函数
 const mutations = {
+	setVideo:function(state,params){
+		state.data.videoList=params;
+	},
+    setPlayUrl:function(state,params){
+        state.data.playUrl=params;
+        console.log(params)
+    }
 
 };
 // 整合初始状态和变更函数，我们就得到了我们所需的 store

@@ -27,7 +27,7 @@ router.map({
   	name:'module',
   	component:module
   },
-  '/play/:id':{
+  '/play':{
     name:'play',
     component:play
   }

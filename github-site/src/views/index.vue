@@ -1,7 +1,7 @@
 <template>
   <div class="ub ub-ver" id="index">
     <divider>热门</divider>
-    <swiper :list="swiperImgList" @on-click-list-item="itemClicked" auto height='200px' :show-desc-mask="false" dots-position="center"></swiper>
+    <swiper :list="swiperImgList" @on-click-list-item="itemClicked" auto height='400px' :show-desc-mask="false" dots-position="center"></swiper>
     <divider>分类</divider>
     <divider>传送门</divider>
   </div>
@@ -12,12 +12,14 @@
 
   //取值器，获取页面需要的数据
   import {
-    
+    getVideoList
   } from 'getter/getter.js'
 
   //状态转化器
   import {
-    jsSkipPath
+    jsSkipPath,
+    pullVideo,
+    setPlayUrl
   } from 'action/action.js'
 
   //组件
@@ -27,19 +29,7 @@
   export default {
     data:function(){
       return {
-        swiperImgList: [{
-                url: '',
-                img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
-                title: '如何手制一份秋意的茶？'
-              }, {
-                url: '',
-                img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
-                title: '茶包VS原叶茶'
-              }, {
-                url: '',
-                img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
-                title: '播下茶籽，明春可发芽？'
-              }]
+        swiperImgList: [],
       }
     },
     components: {
@@ -48,28 +38,52 @@
     },
     methods:{
       itemClicked(item){
-        jsSkipPath({routeName:"play",params:{id:"123"}})
+        setPlayUrl(item.playUrl);
+        jsSkipPath({routeName:"play"});
       }
     },
     computed:{
+      list:function(){
+        return getVideoList();
+      }
     },
     vuex:{
       actions:{
-        jsSkipPath
+        jsSkipPath,
+        pullVideo,
+        setPlayUrl
       },
       getters:{
+        getVideoList
       }
     },
     watch:{
+      "list":function(newValue,oldValue){
+        if(typeof(newValue)=="object"&&newValue.length>0){
+          var info=[];
+          for(let i=0;i<newValue.length;i++){
+              var sub={};
+              sub.playUrl="http://vip.sdyhy.cn/vip.php?url="+newValue[i].firstepisode_videourl;
+              sub.img=newValue[i].show_vthumburl;
+              sub.title=newValue[i].showname;
+              info.push(sub);
+          };
+          this.swiperImgList=info;
+        }
+      }
     },
     route: {
       data ({ to }) {
+        pullVideo({
+          param:"/static/store/video/youku/youku_1.txt"
+        });
       },
       deactivate:function(transition){
         transition.next()
       }
     },
     ready:function(){
+      
     },
     store:store,
   }
