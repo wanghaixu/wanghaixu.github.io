@@ -15,7 +15,15 @@ var state = {
             type:""
         },
         //主页模块菜单
-        moduleMenu:[]
+        moduleMenu:[],
+        //模块视频列表
+        moduleVideoList:[]
+    },
+    state:{
+    	ajax:{
+    		succeed:true,
+    		error:false
+    	}
     },
     //接口列表
     ApiList: {
@@ -34,8 +42,17 @@ const mutations = {
     },
     setModuleMenu:function(state,params){
         state.data.moduleMenu=params;
+    },
+    moduleVideoList:function(state,params){
+    	let newList=state.data.moduleVideoList.concat(params);
+    	state.data.moduleVideoList=newList;
+    },
+    setAjaxState:function(state,params){
+    	state.state.ajax=params;
+    },
+    pullVideoList_newType:function(state,params){
+    	state.data.moduleVideoList=params;
     }
-
 };
 // 整合初始状态和变更函数，我们就得到了我们所需的 store
 // 至此，这个 store 就可以连接到我们的应用中

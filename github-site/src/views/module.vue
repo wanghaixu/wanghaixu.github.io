@@ -1,16 +1,17 @@
 <template>
   <div class="ub-ver" id="module">
     <x-header style="background-color:rgba(49, 107, 169, 0.62)">{{moduleInfo.title}}</x-header>
-    <divider>{{menu.current}}</divider>
-    {{getModuleMenu|json}}
+    <div class="module-title">
+      <divider>{{menu.current}}</divider>
+    </div>
     <div class="menu">
       <label>菜单</label>
-      <popup-picker :data="getModuleMenu" @on-show="menuShow" @on-hide="menuHide" :value.sync="menu.current"></popup-picker>
+      <popup-picker :data="menu.list" @on-show="menuShow" @on-hide="menuHide" :value.sync="menu.current"></popup-picker>
     </div>
     <main>
-      <ul>
-        <li v-for="0 in 10">
-          <img data-src="http://r3.ykimg.com/0516000056B01AAE67BC3C2A660716C7" class="lazyload" alt="" />
+      <ul id="dataList">
+        <li v-for="item in getModuleVideoList" @click="itemClicked(item)">
+          <img :src="item.show_vthumburl" alt="" />
         </li>
       </ul>
     </main>
@@ -22,11 +23,15 @@
   //取值器，获取页面需要的数据
   import {
     getModuleInfo,
-    getModuleMenu
+    getModuleVideoList,
+    getAjaxState
   } from 'getter/getter.js'
   //状态转化器
   import {
-    
+    jsSkipPath,
+    pullVideoList,
+    setPlayUrl,
+    pullVideoList_newType
   } from 'action/action.js'
 
   //组件
@@ -37,13 +42,15 @@
     data:function(){
       return {
         _menuPostionX:0,
+        _type:1,
+        _pageNum:1,
         moduleInfo:{
           title:"",
           type:""
         },
         menu:{
-          current:[this.getModuleMenu.subclass[0][0]],
-          list:this.getModuleMenu.subclass
+          current:["错误"],
+          list:[]
         }
       }
     },
@@ -60,70 +67,138 @@
       },
       menuHide:function(){
         $('#module .menu').css("left",this._menuPostionX);
-      }
+      },
+      //前往播放
+      itemClicked(item){
+        setPlayUrl("http://vip.sdyhy.cn/vip.php?url="+item.firstepisode_videourl);
+        jsSkipPath({routeName:"play"});
+      },
     },
     computed:{
     },
     vuex:{
       actions:{
+        jsSkipPath,
+        pullVideoList,
+        setPlayUrl,
+        pullVideoList_newType
       },
       getters:{
         getModuleInfo,
-        getModuleMenu
+        getModuleVideoList,
+        getAjaxState
       }
     },
     watch:{
+      "moduleInfo":{
+        deep:true,
+        handler:function(newValue){
+          if(newValue.type!=""){
+            this.menu.list=newValue.subclasses;
+            
+          }else{
+            jsSkipPath({routeName:"index"})
+          }
+        }
+      },
+      "menu":{
+        deep:true,
+        handler:function(newValue){
+          //切换分类
+          if(newValue.current!="错误"){
+            let subIndex=0;
+            for(let i=0;i<newValue.list[0].length;i++){
+              if(newValue.current==newValue.list[0][i]){
+                subIndex=i+1
+                break;
+              }
+            }
+            this._type=subIndex;
+            this._pageNum=1;
+            pullVideoList_newType({
+              module:this.moduleInfo.type,
+              type:subIndex,
+              pageNum:1
+            });
+          }
+        }
+      }
     },
     route: {
       data ({ to }) {
         this.moduleInfo=getModuleInfo();
+        //容灾
+        if(this.moduleInfo.type==""){
+          alert("页面出错，返回主页");
+          window.location.href="/";
+        }else{
+          
+        }
       },
       deactivate:function(transition){
         transition.next()
       }
     },
     ready:function(){
-      let winH=$("body").height();
-      let winW=$("body").width();
-      const menuSize=60;
-      let show=false;
-      var time;
-      const isShow=function(){
-        clearTimeout(time);
-        if(!show){
-          $(".menu label").css("opacity",1);
-          show=true;
-        }
-        time=setTimeout(function(){
-          if(show){
-            $(".menu label").css("opacity",0.3);
-            show=false;
+      this.menu.current=[this.menu.list[0][0]];
+      //菜单初始化
+      let menuInit=function(){
+        let winH=$("body").height();
+        let winW=$("body").width();
+        const menuSize=60;
+        let show=false;
+        var time;
+        const isShow=function(){
+          clearTimeout(time);
+          if(!show){
+            $(".menu label").css("opacity",1);
+            show=true;
           }
-        },2000)
-      }
-      window.onscroll = isShow;
-      isShow();
-      $('#module .menu .weui_cell').on("touchstart",isShow).on("touchmove",function(e){
+          time=setTimeout(function(){
+            if(show){
+              $(".menu label").css("opacity",0.6);
+              show=false;
+            }
+          },2000)
+        }
+        window.onscroll = isShow;
         isShow();
-        let x=e.changedTouches[0].pageX-(menuSize/2);
-        let y=winH-e.changedTouches[0].pageY-(menuSize/2);
-        if(y<0){
-          y=0;
-        }else if(y>winH-menuSize){
-          y=winH-menuSize
-        }
-        if(x<0){
-          x=0;
-        }else if(x>winW-menuSize){
-          x=winW-menuSize;
-        }
-        $('#module .menu').css({
-          bottom:y+"px",
-          left:x+"px"
+        $('#module .menu .weui_cell').on("touchstart",isShow).on("touchmove",function(e){
+          isShow();
+          let x=e.changedTouches[0].pageX-(menuSize/2);
+          let y=winH-e.changedTouches[0].pageY-(menuSize/2);
+          if(y<0){
+            y=0;
+          }else if(y>winH-menuSize){
+            y=winH-menuSize
+          }
+          if(x<0){
+            x=0;
+          }else if(x>winW-menuSize){
+            x=winW-menuSize;
+          }
+          $('#module .menu').css({
+            bottom:y+"px",
+            left:x+"px"
+          });
+          e.stopPropagation();
+          return false;
         });
-        e.stopPropagation();
-        return false;
-      });
+      };
+      menuInit();
+      //滚动到底部时自动加载
+      let tag=this;
+      $(window).on("scroll",function(e){
+        if($("#dataList li").last().offset().top-$(window).scrollTop()-$("#dataList li").last().height()*2<500){
+          if(tag.getAjaxState.succeed){
+            pullVideoList({
+              module:tag.moduleInfo.type,
+              type:tag._type,
+              pageNum:tag._pageNum++
+            });
+          }
+        }
+      })
     },
     store:store,
   }
@@ -193,16 +268,15 @@
       }
       li{
         display: inline-block;
-        width: 42%;
+        width: 46%;
         height: 200px;
-        margin:0 2%;
-        margin-bottom: 2rem;
+        margin:1rem 2%;
         float: left;
         text-align: center;
-        border:1px solid #d7d7d7;
         box-sizing: border-box;
         img{
           max-width: 100%;
+          max-height:200px;
         }
       }
     }

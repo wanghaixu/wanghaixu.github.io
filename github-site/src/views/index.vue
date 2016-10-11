@@ -92,7 +92,7 @@
     route: {
       data ({ to }) {
         pullVideo({
-          param:"/static/store/video/youku/youku_1.txt"
+          param:"/static/store/master_recommend/list.txt"
         });
       },
       deactivate:function(transition){
@@ -118,7 +118,7 @@
     ul{
       text-align: center;
       li{
-        @li-size:5.5rem;
+        @li-size:4rem;
         display: inline-block;
         width: @li-size;
         height: @li-size;

@@ -67,3 +67,45 @@ export const pullModuleMenu=function(){
     }
     ajax(postData);
 }
+//获取视频列表
+export const pullVideoList = function(param) {
+	//禁止多次请求
+	store.dispatch("setAjaxState",{
+		succeed:false,
+		error:false
+	});
+    let postData = {
+        url: "./static/store/module_"+param.module+"/type_"+param.type+"/"+param.pageNum+".txt"
+    }
+    postData.success = function(data) {
+        let result=data.result.result;
+        store.dispatch("moduleVideoList",result);
+        store.dispatch("setAjaxState",{
+        	succeed:true,
+        	error:false
+        });
+    }
+    postData.error = function(xhr, err) {
+        store.dispatch("setAjaxState",{
+        	succeed:true,
+        	error:true
+        });
+    }
+    ajax(postData);
+};
+
+//切换新的分类
+export const pullVideoList_newType = function(param) {
+	//禁止多次请求
+    let postData = {
+        url: "./static/store/module_"+param.module+"/type_"+param.type+"/"+param.pageNum+".txt"
+    }
+    postData.success = function(data) {
+        let result=data.result.result;
+        store.dispatch("pullVideoList_newType",result);
+    }
+    postData.error = function(xhr, err) {
+    	alert("请求失败，请重试！");
+    }
+    ajax(postData);
+};

@@ -16,3 +16,11 @@ export function getModuleInfo(){
 export function getModuleMenu(){
 	return store.state.data.moduleMenu;
 }
+//获取模块视频列表
+export function getModuleVideoList(){
+	return store.state.data.moduleVideoList;
+}
+//获取ajax请求状态
+export function getAjaxState(){
+	return store.state.state.ajax;
+}
