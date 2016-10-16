@@ -1,27 +1,27 @@
-# github-sites
+{	
+	<!-- 优酷-电影 -->
+	module_2:{
+		<!-- 类型 -->
+		type_*:[
+			<!-- 分页 -->
+			"*.txt":"分页",
+			<!-- 分集 -->
+			subsection:[
+				"*.txt":"第*集"
+			]
+		],
+	},
+	<!-- 优酷-电视剧 -->
+	module_2:{
+		<!-- 类型 -->
+		type_*:[
+			<!-- 分页 -->
+			"*.txt":"分页",
+			<!-- 分集 -->
+			subsection:[
+				"*.txt":"第*集"
+			]
+		],
+	},
 
-> 基于github pages的应用
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+}
