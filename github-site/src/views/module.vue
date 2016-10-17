@@ -70,7 +70,7 @@
       },
       //前往播放
       itemClicked(item){
-        setPlayUrl("http://vip.sdyhy.cn/vip.php?url="+item.firstepisode_videourl);
+        setPlayUrl("http://www.kuaisuyy.com/play/index.php?url="+item.firstepisode_videourl);
         jsSkipPath({routeName:"play"});
       },
     },
