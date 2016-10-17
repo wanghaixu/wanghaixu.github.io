@@ -1,9 +1,9 @@
 <template>
   <div class="ub ub-ver" id="play">
     <iframe width="100%" height="250px" allowtransparency="true" frameborder="0" scrolling="no" :src="url"></iframe>
-    <ul class="ub-f1 toggle-set" v-if="getPlayUrl.isSet">
-      <divider style="margin-top:10px; background-color:#fff">选集-[{{activeItem}}/{{getPlayUrl.gather.length}}]</divider>
-      <li :class="{ 'active': i==activeItem}" v-for="i in getPlayUrl.gather" @click="toggleSet(i)">{{i+1}}</li>
+    <ul class="ub-f1 toggle-set" v-if="getModuleInfo.isSet">
+      <divider style="margin-top:10px; background-color:#fff">选集-[{{activeItem}}/{{getModuleVideoList.length}}]</divider>
+      <li :class="{ 'active': ($index+1)==activeItem}" v-for="i in getModuleVideoList" @click="toggleSet(i)">{{$index+1}}</li>
     </ul>
   </div>
 </template>
@@ -14,7 +14,9 @@
   import store from 'store/store.js'
   //取值器，获取页面需要的数据
   import {
-    getPlayUrl
+    getPlayInfo,
+    getModuleInfo,
+    getModuleVideoList
   } from 'getter/getter.js'
   //状态转化器
   import {
@@ -23,7 +25,8 @@
   export default {
     data:function(){
       return {
-        activeItem:1
+        activeItem:1,
+        url:""
       }
     },
     components: {
@@ -38,15 +41,15 @@
       }
     },
     computed:{
-      url:function(){
-        return getPlayUrl().playUrl;
-      }
+      
     },
     vuex:{
       actions:{
       },
       getters:{
-        getPlayUrl
+        getPlayInfo,
+        getModuleInfo,
+        getModuleVideoList
       }
     },
     watch:{
@@ -54,11 +57,18 @@
     route: {
       data ({ to }) {
         $(window).scrollTop(0);
-        if(!this.url){
+        if(getPlayInfo().playUrl==""){
           alert("页面出错，请重新进入！");
           window.history.back(-1);
-        }
-        
+        };
+        if(getModuleInfo().isSet){
+        	//获取分集信息
+        	console.log(getPlayInfo().playUrl);
+        }else{
+        	//单集，直接播放
+        	let sourceUrl=getPlayInfo().playUrl;
+        	this.url="http://www.kuaisuyy.com/play/index.php?url="+sourceUrl;
+        }; 
       },
       deactivate:function(transition){
         transition.next()
@@ -73,7 +83,7 @@
 <style lang="less">
   @import '~vux/dist/vux.css';
   #play{
-    background-color: #000;
+    background-color: #fff;
     user-select:none;
     -webkit-touch-callout:none;
     -khtml-user-select:none;

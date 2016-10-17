@@ -47,7 +47,11 @@
     methods:{
       //轮播图点击
       itemClicked(item){
-        setPlayUrl(item.playUrl);
+        let data={
+          playUrl:item.playUrl,
+          fileName:""
+        }
+        setPlayUrl(data);
         jsSkipPath({routeName:"play"});
       },
       //分类菜单点击
@@ -80,7 +84,7 @@
           var info=[];
           for(let i=0;i<newValue.length;i++){
               var sub={};
-              sub.playUrl="http://www.kuaisuyy.com/play/index.php?url="+newValue[i].firstepisode_videourl;
+              sub.playUrl=newValue[i].firstepisode_videourl;
               sub.img=newValue[i].show_vthumburl;
               sub.title=newValue[i].showname;
               info.push(sub);

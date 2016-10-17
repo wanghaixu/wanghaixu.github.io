@@ -11,16 +11,15 @@ var state = {
         playInfo:{
             //播放地址
             playUrl:"",
-            //是否多集
-            isSet:false,
-            //分集
-            gather:[]
+            //获取多集文件名
+            fileName:""
         },
-        isSet:false,
+        
         //模块内配置信息
         moduleInfo:{
             title:"页面出错，请返回上一页！",
-            type:""
+            type:"",
+            isSet:false
         },
         //主页模块菜单
         moduleMenu:[],
@@ -43,7 +42,7 @@ const mutations = {
 		state.data.videoList=params;
 	},
     setPlayUrl:function(state,params){
-        state.data.playInfo.playUrl=params;
+        state.data.playInfo=params;
     },
     setModuleInfo:function(state,params){
         state.data.moduleInfo=params;

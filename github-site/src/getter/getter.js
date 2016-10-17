@@ -5,7 +5,7 @@ export function getVideoList () {
   return store.state.data.videoList;
 }
 //获取播放地址
-export function getPlayUrl () {
+export function getPlayInfo () {
   return store.state.data.playInfo;
 }
 //获取模块内信息

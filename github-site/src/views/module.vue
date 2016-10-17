@@ -44,10 +44,7 @@
         _menuPostionX:0,
         _type:1,
         _pageNum:1,
-        moduleInfo:{
-          title:"",
-          type:""
-        },
+        moduleInfo:{},
         menu:{
           current:["错误"],
           list:[]
@@ -70,7 +67,24 @@
       },
       //前往播放
       itemClicked(item){
-        setPlayUrl("http://www.kuaisuyy.com/play/index.php?url="+item.firstepisode_videourl);
+      	console.log(item);
+
+      	let data;
+      	if(getModuleInfo().isSet){
+      		//多集
+      		data={
+      		  playUrl:item.playUrl,
+      		  fileName:item.id
+      		}
+      		console.log(data);
+      	}else{
+      		//单集
+      		data={
+      			playUrl:item.playUrl,
+      			fileName:""
+      		}
+      	}
+        setPlayUrl(data);
         jsSkipPath({routeName:"play"});
       },
     },

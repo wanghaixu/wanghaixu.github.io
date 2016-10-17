@@ -1,6 +1,7 @@
 [{
     "title": "电影",
     "type": 1,
+    "isSet":false,
     "subclasses": [[
             "最新上线",
             "动作",
@@ -28,6 +29,7 @@
 },{
     "title": "电视剧",
     "type": 2,
+    "isSet":true,
     "subclasses": [[
             "古装"
         ]

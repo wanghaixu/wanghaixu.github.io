@@ -101,7 +101,41 @@ export const pullVideoList_newType = function(param) {
         url: "./static/store/module_"+param.module+"/type_"+param.type+"/"+param.pageNum+".txt"
     }
     postData.success = function(data) {
-        let result=data.result.result;
+    	let result=[];
+    	if(!!data.result.result){
+    		//单集
+    		result=data.result.result;
+    		console.log(result);
+    	}else if(!!data.result){
+    		//多集
+    		result=data.result;
+    		//检查
+    		for(let key=0; key<result.length;key++){
+    			for(let val=key+1; val<result.length-1;val++){
+    				if(result[key].length!=result[val].length){
+    					alert("数据解析错误，请联系管理员！");
+    				}
+    			}
+    		}
+    		//重组
+    		let id=result.id;
+    		let title=result.title;
+    		let showImgUrl=result.showImgUrl;
+    		let playUrl=result.playUrl;
+    		let length=id.length;
+    		let tempSet=[];
+    		for(let i=1;i<length-1;i++){
+    			let dataSub={
+    				id:id[i],
+    				title:title[i],
+    				show_vthumburl:showImgUrl[i],
+    				firstepisode_videourl:playUrl[i]
+    			}
+    			tempSet.push(dataSub);
+    		}
+    		result=tempSet;
+    	}
+
         store.dispatch("pullVideoList_newType",result);
     }
     postData.error = function(xhr, err) {
