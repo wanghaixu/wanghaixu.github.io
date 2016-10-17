@@ -7,8 +7,16 @@ var state = {
     data: {
         //站长推荐
     	videoList:[],
-        //播放地址
-        playUrl:"",
+        
+        playInfo:{
+            //播放地址
+            playUrl:"",
+            //是否多集
+            isSet:false,
+            //分集
+            gather:[]
+        },
+        isSet:false,
         //模块内配置信息
         moduleInfo:{
             title:"页面出错，请返回上一页！",
@@ -35,7 +43,7 @@ const mutations = {
 		state.data.videoList=params;
 	},
     setPlayUrl:function(state,params){
-        state.data.playUrl=params;
+        state.data.playInfo.playUrl=params;
     },
     setModuleInfo:function(state,params){
         state.data.moduleInfo=params;

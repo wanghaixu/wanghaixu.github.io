@@ -106,7 +106,7 @@
         handler:function(newValue){
           //切换分类
           if(newValue.current!="错误"){
-            let subIndex=0;
+            let subIndex=1;
             for(let i=0;i<newValue.list[0].length;i++){
               if(newValue.current==newValue.list[0][i]){
                 subIndex=i+1
