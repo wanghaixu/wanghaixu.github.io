@@ -24,3 +24,7 @@ export function getModuleVideoList(){
 export function getAjaxState(){
 	return store.state.state.ajax;
 }
+//获取分集视频列表
+export function getSubGather(){
+	return store.state.data.subGather;
+}

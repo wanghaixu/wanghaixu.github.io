@@ -48,6 +48,8 @@
       //轮播图点击
       itemClicked(item){
         let data={
+          moduleType:"",
+          subType:"",
           playUrl:item.playUrl,
           fileName:""
         }
@@ -111,6 +113,7 @@
 </script>
 <style lang="less">
   @import '~vux/dist/components/divider/style.css';
+  @import '~vux/dist/components/swiper/style.css';
   #index{
     padding: 0.3rem;
     box-sizing: border-box;

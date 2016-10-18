@@ -9,6 +9,10 @@ var state = {
     	videoList:[],
         
         playInfo:{
+            //模块type
+            moduleType:"",
+            //模块下的类型
+            subType:"",
             //播放地址
             playUrl:"",
             //获取多集文件名
@@ -24,7 +28,9 @@ var state = {
         //主页模块菜单
         moduleMenu:[],
         //模块视频列表
-        moduleVideoList:[]
+        moduleVideoList:[],
+        //分集视频列表
+        subGather:[]
     },
     state:{
     	ajax:{
@@ -38,27 +44,30 @@ var state = {
 };
 // 创建一个对象存储一系列我们接下来要写的 mutation 函数
 const mutations = {
-	setVideo:function(state,params){
+	setVideo(state,params){
 		state.data.videoList=params;
 	},
-    setPlayUrl:function(state,params){
+    setPlayUrl(state,params){
         state.data.playInfo=params;
     },
-    setModuleInfo:function(state,params){
+    setModuleInfo(state,params){
         state.data.moduleInfo=params;
     },
-    setModuleMenu:function(state,params){
+    setModuleMenu(state,params){
         state.data.moduleMenu=params;
     },
-    moduleVideoList:function(state,params){
+    moduleVideoList(state,params){
     	let newList=state.data.moduleVideoList.concat(params);
     	state.data.moduleVideoList=newList;
     },
-    setAjaxState:function(state,params){
+    setAjaxState(state,params){
     	state.state.ajax=params;
     },
-    pullVideoList_newType:function(state,params){
+    pullVideoList_newType(state,params){
     	state.data.moduleVideoList=params;
+    },
+    setSubGather(state,params){
+        state.data.subGather=params;
     }
 };
 // 整合初始状态和变更函数，我们就得到了我们所需的 store

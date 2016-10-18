@@ -1,9 +1,10 @@
 <template>
   <div class="ub ub-ver" id="play">
+  	<div class="show-state">加载中...</div>
     <iframe width="100%" height="250px" allowtransparency="true" frameborder="0" scrolling="no" :src="url"></iframe>
-    <ul class="ub-f1 toggle-set" v-if="getModuleInfo.isSet">
-      <divider style="margin-top:10px; background-color:#fff">选集-[{{activeItem}}/{{getModuleVideoList.length}}]</divider>
-      <li :class="{ 'active': ($index+1)==activeItem}" v-for="i in getModuleVideoList" @click="toggleSet(i)">{{$index+1}}</li>
+    <ul class="ub-f1 toggle-set" v-if="getSubGather.length>0">
+      <divider style="margin-top:10px; background-color:#fff">选集-[{{activeItem}}/{{getSubGather.length}}]</divider>
+      <li :class="{ 'active': ($index+1)==activeItem}" v-for="i in getSubGather" @click="toggleSet($index+1)">{{$index+1}}</li>
     </ul>
   </div>
 </template>
@@ -16,72 +17,92 @@
   import {
     getPlayInfo,
     getModuleInfo,
-    getModuleVideoList
+    getModuleVideoList,
+    getSubGather
   } from 'getter/getter.js'
   //状态转化器
   import {
-    
+    pullSubVideoList
   } from 'action/action.js'
   export default {
     data:function(){
       return {
         activeItem:1,
-        url:""
+        playUrlpPefix:"http://www.kuaisuyy.com/play/index.php?url=",
+        urlTemp:""
       }
     },
     components: {
       divider
     },
     methods:{
-      toggleSet(item){
-        this.activeItem=item;
-        setTimeout(function(){
-          $(window).scrollTop(0);
-        },280);
+    	//换集
+      toggleSet(index){
+        this.activeItem=index;
+        $(window).scrollTop(0);
+        this.urlTemp=(this.playUrlpPefix+this.getSubGather[index-1].toggleSet);
       }
     },
     computed:{
-      
+    	url:function(){
+    		if(this.urlTemp!=""){
+    			return  this.urlTemp;
+    		}else{
+    			let sourceUrl=getPlayInfo().playUrl;
+    			let playUrl=this.getSubGather.length>0?this.getSubGather[0].toggleSet:sourceUrl;
+    			return (this.playUrlpPefix+playUrl);
+    		}
+    	}
     },
     vuex:{
       actions:{
+      	pullSubVideoList
       },
       getters:{
         getPlayInfo,
         getModuleInfo,
-        getModuleVideoList
+        getModuleVideoList,
+        getSubGather
       }
     },
     watch:{
+    	
     },
     route: {
       data ({ to }) {
+      	//初始化
+      	this.urlTemp="";
+      	this.activeItem=1;
         $(window).scrollTop(0);
         if(getPlayInfo().playUrl==""){
-          alert("页面出错，请重新进入！");
           window.history.back(-1);
         };
         if(getModuleInfo().isSet){
         	//获取分集信息
-        	console.log(getPlayInfo().playUrl);
-        }else{
-        	//单集，直接播放
-        	let sourceUrl=getPlayInfo().playUrl;
-        	this.url="http://www.kuaisuyy.com/play/index.php?url="+sourceUrl;
+        	let data={
+        		module:getPlayInfo().moduleType,
+        		subType:getPlayInfo().subType,
+        		fileName:getPlayInfo().fileName
+        	}
+        	pullSubVideoList(data);
         }; 
       },
       deactivate:function(transition){
+        console.log(this)
         transition.next()
       }
     },
     ready:function(){
 
     },
+    destroyed:function(){
+      alert('已销毁')
+    },
     store:store,
   }
 </script>
 <style lang="less">
-  @import '~vux/dist/vux.css';
+  @import '~vux/dist/components/divider/style.css';
   #play{
     background-color: #fff;
     user-select:none;
@@ -112,6 +133,19 @@
           color: #999;
         }
       }
+    }
+    iframe{
+    	position:relative;
+    	z-index:99;
+    }
+    .show-state{
+    	position:absolute;
+    	top:20px;
+    	left:50%;
+    	width:100px;
+    	margin-left:-25px;
+    	color:#333;
+    	z-index:9;
     }
   }
 </style>

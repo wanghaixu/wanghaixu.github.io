@@ -63,7 +63,7 @@ export const pullModuleMenu=function(){
         store.dispatch("setModuleMenu",result);
     }
     postData.error = function(xhr, err) {
-        console.log(err)
+        // console.log(err)
     }
     ajax(postData);
 }
@@ -105,7 +105,6 @@ export const pullVideoList_newType = function(param) {
     	if(!!data.result.result){
     		//单集
     		result=data.result.result;
-    		console.log(result);
     	}else if(!!data.result){
     		//多集
     		result=data.result;
@@ -139,7 +138,33 @@ export const pullVideoList_newType = function(param) {
         store.dispatch("pullVideoList_newType",result);
     }
     postData.error = function(xhr, err) {
-    	alert("请求失败，请重试！");
+    }
+    ajax(postData);
+};
+//获取分集视频列表
+export const pullSubVideoList = function(param) {
+	//禁止多次请求
+    let postData = {
+        url: "./static/store/module_"+param.module+"/type_"+param.subType+"/subsection/"+param.fileName+".txt"
+    }
+    postData.success = function(data) {
+    	let title=data.result.title;
+    	let toggleSet=data.result.toggleSet;
+    	if(title.length!=toggleSet.length){
+    		alert("数据解析错误，请联系管理员！");
+    		return false;
+    	}
+    	let result=[];
+    	for(let i=1;i<title.length-1;i++){
+    		let temp={
+    			title:title[i],
+    			toggleSet:toggleSet[i],
+    		};
+    		result.push(temp);
+    	}
+        store.dispatch("setSubGather",result);
+    }
+    postData.error = function(xhr, err) {
     }
     ajax(postData);
 };

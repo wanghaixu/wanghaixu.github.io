@@ -41,9 +41,9 @@
   export default {
     data:function(){
       return {
-        _menuPostionX:0,
-        _type:1,
-        _pageNum:1,
+        menuPostionX:0,
+        type:1,
+        pageNum:1,
         moduleInfo:{},
         menu:{
           current:["错误"],
@@ -59,28 +59,30 @@
     methods:{
       menuShow:function(){
         let x=$('#module .menu').css("left");
-        this._menuPostionX=x;
+        this.menuPostionX=x;
         $('#module .menu').css("left","-100px");
       },
       menuHide:function(){
-        $('#module .menu').css("left",this._menuPostionX);
+        $('#module .menu').css("left",this.menuPostionX);
       },
       //前往播放
       itemClicked(item){
-      	console.log(item);
 
       	let data;
       	if(getModuleInfo().isSet){
       		//多集
       		data={
-      		  playUrl:item.playUrl,
-      		  fileName:item.id
+      			moduleType:getModuleInfo().type,
+      			subType:this.type,
+	      		playUrl:item.playUrl,
+	      		fileName:item.id
       		}
-      		console.log(data);
       	}else{
       		//单集
       		data={
-      			playUrl:item.playUrl,
+      			moduleType:getModuleInfo().type,
+      			subType:this.type,
+      			playUrl:item.firstepisode_videourl,
       			fileName:""
       		}
       	}
@@ -127,8 +129,8 @@
                 break;
               }
             }
-            this._type=subIndex;
-            this._pageNum=1;
+            this.type=subIndex;
+            this.pageNum=1;
             pullVideoList_newType({
               module:this.moduleInfo.type,
               type:subIndex,
@@ -143,10 +145,7 @@
         this.moduleInfo=getModuleInfo();
         //容灾
         if(this.moduleInfo.type==""){
-          alert("页面出错，返回主页");
           window.location.href="/";
-        }else{
-          
         }
       },
       deactivate:function(transition){
@@ -203,21 +202,27 @@
       //滚动到底部时自动加载
       let tag=this;
       $(window).on("scroll",function(e){
-        if($("#dataList li").last().offset().top-$(window).scrollTop()-$("#dataList li").last().height()*2<500){
-          if(tag.getAjaxState.succeed){
-            pullVideoList({
-              module:tag.moduleInfo.type,
-              type:tag._type,
-              pageNum:tag._pageNum++
-            });
-          }
-        }
+      	if($("#dataList li").length>0){
+      		if($("#dataList li").last().offset().top-$(window).scrollTop()-$("#dataList li").last().height()*2<500){
+      		  if(tag.getAjaxState.succeed){
+      		    pullVideoList({
+      		      module:tag.moduleInfo.type,
+      		      type:tag.type,
+      		      pageNum:tag.pageNum++
+      		    });
+      		  }
+      		}
+      	}
       })
     },
     store:store,
   }
 </script>
 <style lang="less">
+  @import '~vux/dist/components/x-header/style.css';
+  @import '~vux/dist/components/popup-picker/style.css';
+  @import '~vux/dist/components/divider/style.css';
+
   #module{
     user-select:none;
     box-sizing: border-box;
