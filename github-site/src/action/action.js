@@ -8,6 +8,7 @@ const ajax = function({
     success,
     error = "",
 }) {
+    url=url+"?v=1.0.2";
     $.ajax({
         url: url,
         method: method,
