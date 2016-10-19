@@ -1,0 +1,8 @@
+{
+    "result": {
+        "id":[ "错误" ,"XNTQ3NDA0MjU2","XOTU5ODYzMTY0","XNzM2ODE5NTAw","XMTMyNDc4NTcwOA==","XMTUyMzA5MzA3Ng==","XMTQ1NjA5NDY3Mg==","XMTI5NTc4OTgyOA==" ],
+        "title":[ "错误" ,"新楚留香 粤语版","神雕侠侣","古剑奇谭 未删减版","花样江湖","武神赵子龙","蜀山战纪","古剑奇谭 湖北卫视版" ],
+        "showImgUrl":[ "错误" ,"http://r2.ykimg.com/051600005254FE1F6758393CE804E2E4","http://r2.ykimg.com/05160000529EF0BC6758394A6C0D11E1","http://r2.ykimg.com/0516000055BF345767BC3C3DD701409A","http://r2.ykimg.com/0516000054C99F2767379F6CD1074D96","http://r2.ykimg.com/051600005513949B67379F1B7C0DE726","http://r2.ykimg.com/051600005757AC3867BC3C2F180378A1","http://r2.ykimg.com/0516000055BF348C67BC3C423F04E3B9" ],
+        "playUrl":[ "错误" ,"http://v.youku.com/v_show/id_XNTQ3NDA0MjU2.html","http://v.youku.com/v_show/id_XOTU5ODYzMTY0.html","http://v.youku.com/v_show/id_XNzM2ODE5NTAw.html","http://v.youku.com/v_show/id_XMTMyNDc4NTcwOA==.html","http://v.youku.com/v_show/id_XMTUyMzA5MzA3Ng==.html","http://v.youku.com/v_show/id_XMTQ1NjA5NDY3Mg==.html","http://v.youku.com/v_show/id_XMTI5NTc4OTgyOA==.html" ]
+    }
+}

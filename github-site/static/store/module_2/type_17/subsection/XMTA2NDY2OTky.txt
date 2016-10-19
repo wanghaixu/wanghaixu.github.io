@@ -1,0 +1,6 @@
+{
+    "result": {
+        "title":[ "错误" ,"第1集","第2集","第3集","第4集","第5集","第6集","第7集","第8集","第9集","第10集","第11集","第12集","第13集","第14集","第15集","第16集","第17集","第18集","第19集","第20集" ],
+        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XMTA2NDY2OTky.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY2NzQ4.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY2NDAw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY2MjA0.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY5NjY0.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY5NDM2.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY5MjAw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY4OTk2.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY4NzU2.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY4NTAw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY1OTUy.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY1NjIw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY1MzE2.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY1MDMy.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY0NzQw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY4Mjg0.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY4MDY4.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY3ODIw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY3NjIw.html"   ,"http://v.youku.com/v_show/id_XMTA2NDY3Mzg0.html"  ]
+    }
+}
