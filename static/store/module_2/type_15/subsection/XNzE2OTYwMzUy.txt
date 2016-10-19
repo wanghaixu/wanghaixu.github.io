@@ -1,0 +1,6 @@
+{
+    "result": {
+        "title":[ "错误" ,"第1集","第2集","第3集","第4集","第5集","第6集" ],
+        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XNzE2OTYwMzUy.html"   ,"http://v.youku.com/v_show/id_XNzIzNDk2NTA0.html"   ,"http://v.youku.com/v_show/id_XNzMwMTIyNDEy.html"   ,"http://v.youku.com/v_show/id_XNzM2NzY0Mjg4.html"   ,"http://v.youku.com/v_show/id_XNzQyMzgzNDQ4.html"   ,"http://v.youku.com/v_show/id_XNzQ5MjE3NjQw.html"  ]
+    }
+}
