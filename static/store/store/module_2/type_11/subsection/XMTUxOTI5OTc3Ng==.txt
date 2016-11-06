@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"第102集","第103集","第104集","第105集","第106集","第107集","第108集","第109集","第110集","第111集","第112集","第113集","第114集","第115集","第116集","第117集","第118集","第119集","第120集","第121集","第122集" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XODMwMTA5ODcy.html"   ,"http://v.youku.com/v_show/id_XODMwNTY0OTQw.html"   ,"http://v.youku.com/v_show/id_XODMwNTY1NDA4.html"   ,"http://v.youku.com/v_show/id_XODMwNTc2MDIw.html"   ,"http://v.youku.com/v_show/id_XODMwNTc2NDg0.html"   ,"http://v.youku.com/v_show/id_XODMwNTc2OTky.html"   ,"http://v.youku.com/v_show/id_XODMwNTc3NDcy.html"   ,"http://v.youku.com/v_show/id_XODMwNTc3OTM2.html"   ,"http://v.youku.com/v_show/id_XODMwNTc4NTUy.html"   ,"http://v.youku.com/v_show/id_XODMwNTc5MDcy.html"   ,"http://v.youku.com/v_show/id_XODMwNTc5Njk2.html"   ,"http://v.youku.com/v_show/id_XODMwNTgwMzIw.html"   ,"http://v.youku.com/v_show/id_XODMwNTgwODg4.html"   ,"http://v.youku.com/v_show/id_XODMwNjAzMzYw.html"   ,"http://v.youku.com/v_show/id_XODMwNjA0NTAw.html"   ,"http://v.youku.com/v_show/id_XODMwNjA1NDYw.html"   ,"http://v.youku.com/v_show/id_XODMwNjA2MzQ4.html"   ,"http://v.youku.com/v_show/id_XODMwNjA3MjI4.html"   ,"http://v.youku.com/v_show/id_XODMwNjA4MDUy.html"   ,"http://v.youku.com/v_show/id_XMTUxOTI5OTc4NA==.html"   ,"http://v.youku.com/v_show/id_XMTUxOTI5OTc3Ng==.html"  ]
-    }
-}

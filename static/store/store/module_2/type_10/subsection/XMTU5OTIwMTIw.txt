@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"第19集","第20集","第21集","第22集","第23集","第24集","第25集","第26集","第27集" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTIw.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTMy.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTQw.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTI0.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTI4.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTQ4.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTM2.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTQ0.html"   ,"http://v.youku.com/v_show/id_XMTU5OTIwMTUy.html"  ]
-    }
-}

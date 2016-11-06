@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"","","","","","","","","","","","","","","","","" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XNTE3MDgzNzA0.html"   ,"http://v.youku.com/v_show/id_XNTE3MDg0MzI0.html"   ,"http://v.youku.com/v_show/id_XNTE3MDg0ODg0.html"   ,"http://v.youku.com/v_show/id_XNTEwNTIwMjUy.html"   ,"http://v.youku.com/v_show/id_XNTIwODM1NzA4.html"   ,"http://v.youku.com/v_show/id_XNTIzOTIzOTUy.html"   ,"http://v.youku.com/v_show/id_XNTI3MTg1MTk2.html"   ,"http://v.youku.com/v_show/id_XNTMxMjUyMDA4.html"   ,"http://v.youku.com/v_show/id_XNTM0NTYzODk2.html"   ,"http://v.youku.com/v_show/id_XNTQxNzgxOTg0.html"   ,"http://v.youku.com/v_show/id_XNTQ1MTI1MTA4.html"   ,"http://v.youku.com/v_show/id_XNTQ4NDE4MDQw.html"   ,"http://v.youku.com/v_show/id_XNTU0OTE4NDQw.html"   ,"http://v.youku.com/v_show/id_XNTU4MTkxNzMy.html"   ,"http://v.youku.com/v_show/id_XNTYxMzc5ODQw.html"   ,"http://v.youku.com/v_show/id_XNjI0NzU5OTQ0.html"   ,"http://v.youku.com/v_show/id_XNjMzMjc1MzA0.html"  ]
-    }
-}

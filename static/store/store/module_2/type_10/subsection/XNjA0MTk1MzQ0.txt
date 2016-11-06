@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" , ],
-        "toggleSet":[ "错误"  ]
-    }
-}

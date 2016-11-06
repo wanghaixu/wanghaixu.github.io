@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"","","","","","","","","","","" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XNzQzODI4OTA4.html"   ,"http://v.youku.com/v_show/id_XNzQ2ODU0MjYw.html"   ,"http://v.youku.com/v_show/id_XNzUyMjczNzE2.html"   ,"http://v.youku.com/v_show/id_XNzUyNzM3MDE2.html"   ,"http://v.youku.com/v_show/id_XNzU3OTc0OTEy.html"   ,"http://v.youku.com/v_show/id_XNzU5ODUwOTUy.html"   ,"http://v.youku.com/v_show/id_XNzY3OTczMTMy.html"   ,"http://v.youku.com/v_show/id_XNzc0NDE2NzAw.html"   ,"http://v.youku.com/v_show/id_XNzgyNjc5NjYw.html"   ,"http://v.youku.com/v_show/id_XNzg2MTY4MzI0.html"   ,"http://v.youku.com/v_show/id_XODAwNDkzMzIw.html"  ]
-    }
-}

@@ -1,0 +1,8 @@
+{
+    "result": {
+        "id":[ "错误" ,"XMTI5NTc4OTgyOA==","XMTQwODEwMjQxMg==" ],
+        "title":[ "错误" ,"古剑奇谭 湖北卫视版","飞刀又见飞刀" ],
+        "showImgUrl":[ "错误" ,"http://r3.ykimg.com/0516000055BF348C67BC3C423F04E3B9","http://r3.ykimg.com/05160000577B1AB767BC3C779E037218" ],
+        "playUrl":[ "错误" ,"http://v.youku.com/v_show/id_XMTI5NTc4OTgyOA==.html","http://v.youku.com/v_show/id_XMTQwODEwMjQxMg==.html" ]
+    }
+}

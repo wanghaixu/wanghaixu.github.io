@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"","","","","","" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XMTQ3MjQ4MzE4OA==.html"   ,"http://v.youku.com/v_show/id_XMTQ3NDc5Nzk5Mg==.html"   ,"http://v.youku.com/v_show/id_XMTQ3NTcyNzk2MA==.html"   ,"http://v.youku.com/v_show/id_XMTQ4Mjk1ODczMg==.html"   ,"http://v.youku.com/v_show/id_XMTUxNjA2OTMxMg==.html"   ,"http://v.youku.com/v_show/id_XMTUzMDkyMTYyOA==.html"  ]
-    }
-}

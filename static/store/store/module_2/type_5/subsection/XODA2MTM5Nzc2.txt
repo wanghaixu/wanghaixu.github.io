@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"第1集","第2集","第3集","第4集","第5集","第6集","第7集","第8集","第9集","第10集","第11集" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XODA2MTM5Nzc2.html"   ,"http://v.youku.com/v_show/id_XODEyMjAwMDYw.html"   ,"http://v.youku.com/v_show/id_XODE2OTQzMzM2.html"   ,"http://v.youku.com/v_show/id_XODIyNjcxNzUy.html"   ,"http://v.youku.com/v_show/id_XODI3NzA2Mzk2.html"   ,"http://v.youku.com/v_show/id_XODMzMDI1Nzcy.html"   ,"http://v.youku.com/v_show/id_XODM4MjYyNjQ0.html"   ,"http://v.youku.com/v_show/id_XODQzMjU5NDI4.html"   ,"http://v.youku.com/v_show/id_XODQ3Nzk4NDg4.html"   ,"http://v.youku.com/v_show/id_XODUyNzczODQ4.html"   ,"http://v.youku.com/v_show/id_XODU4MDI1MDg4.html"  ]
-    }
-}
