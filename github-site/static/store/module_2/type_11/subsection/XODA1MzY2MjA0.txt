@@ -1,6 +1,0 @@
-{
-    "result": {
-        "title":[ "错误" ,"第1集","第2集","第3集" ],
-        "toggleSet":[ "错误"   ,"http://v.youku.com/v_show/id_XODA1MzY2MjA0.html"   ,"http://v.youku.com/v_show/id_XODA1MzcyMDc2.html"   ,"http://v.youku.com/v_show/id_XODA1Mzc3MzY0.html"  ]
-    }
-}
